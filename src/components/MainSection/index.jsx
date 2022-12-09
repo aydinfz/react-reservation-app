@@ -5,16 +5,10 @@ import { Confirmed } from "./Confirmed";
 
 export function MainSection() {
   return (
-    <Container maxW="5xl" h="80vh" color="white" >
-      <Flex align="center">
+    <Container maxW="5xl" color="white">
+      <Flex align="center" h="88vh">
         <Reservation />
-        <Divider
-          orientation="vertical"
-          mx="50px"
-          h="80vh"
-          borderWidth={1}
-          borderColor="gray.300"
-        />
+        <Divider orientation="vertical" mx="50px" borderColor="gray.300" />
         <Confirmed />
       </Flex>
     </Container>

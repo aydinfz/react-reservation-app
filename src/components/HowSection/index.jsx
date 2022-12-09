@@ -4,16 +4,16 @@ import { Text, VStack, Center } from "@chakra-ui/react";
 
 export function HowSection() {
   return (
-    <VStack>
-      <Center maxW="400px" h="80vh" color="white">
-        <Text bg="purple">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo sapiente
-          soluta sint aspernatur possimus, pariatur totam illo, perspiciatis
-          quam exercitationem deleniti quibusdam eligendi ipsam repellendus
-          tempore expedita placeat praesentium odio.
-        </Text>
-        <Icons />
-      </Center>
+    <VStack h="88vh" textAlign="center" justify="center">
+      <Text>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae facere voluptates dicta iure architecto vitae reiciendis libero labore, modi molestiae temporibus delectus ut commodi quisquam consequatur. Quae repellendus sed est!
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est, quidem. Hic quia ipsam voluptatibus delectus quidem iste repellat rem commodi, illo dicta temporibus ut eaque deleniti optio tempora modi. Doloribus.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo sapiente
+        soluta sint aspernatur possimus, pariatur totam illo, perspiciatis quam
+        exercitationem deleniti quibusdam eligendi ipsam repellendus tempore
+        expedita placeat praesentium odio.
+      </Text>
+      <Icons />
     </VStack>
   );
 }
