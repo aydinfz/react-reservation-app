@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Badge } from "@chakra-ui/react";
 
-export function PersonRes({ name }) {
+export function PersonRes({ name, status }) {
   return (
     <Box
       borderColor="purple.400"
@@ -14,11 +14,8 @@ export function PersonRes({ name }) {
       color="black"
     >
       {name}
-      {/* <Badge colorScheme="purple" mx={2}>
-          Waiting
-        </Badge> */}
-      <Badge colorScheme="blackAlpha" mx={2}>
-        Cancel
+      <Badge colorScheme={status == "cancel" ? "blackAlpha" : "purple"} mx={2}>
+        {status}
       </Badge>
     </Box>
   );

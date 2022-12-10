@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Input, Button, Box } from "@chakra-ui/react";
 import { useDispatch } from "react-redux";
-import { addReservation } from "../../../../redux/reservationSlice";
+import { addReservation } from "../../../redux/reservationSlice";
+import {nanoid} from "@reduxjs/toolkit"
 
 export function InputSection() {
   const [reservationNameInput, setResarvationNameInput] = useState("");
@@ -10,7 +11,9 @@ export function InputSection() {
 
   const handleReservation = () => {
     if (!reservationNameInput) return;
-    dispatch(addReservation(reservationNameInput));
+    dispatch(
+      addReservation({ id: nanoid(), reservationNameInput, status: "waiting" })
+    );
     setResarvationNameInput("");
   };
   return (

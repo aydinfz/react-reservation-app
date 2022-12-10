@@ -1,45 +1,30 @@
-import {createSlice} from "@reduxjs/toolkit"
+import { createSlice } from "@reduxjs/toolkit";
+import { v4 as uuidv4 } from "uuid";
 
 const initialState = {
   value: [
-    "adem",
-    "asjdhasdj",
-    "ajksdhhhfd",
-    "skdhjhfsfd",
-    "sdjhdfjhds",
-    "adem",
-    "asjdhasdj",
-    "ajksdhhhfd",
-    "skdhjhfsfd",
-    "sdjhdfjhds",
-    "asjdhasdj",
-    "ajksdhhhfd",
-    "skdhjhfsfd",
-    "sdjhdfjhds",
-    "asjdhasdj",
-    "ajksdhhhfd",
-    "skdhjhfsfd",
-    "sdjhdfjhds",
-    "asjdhasdj",
-    "ajksdhhhfd",
-    "skdhjhfsfd",
-    "sdjhdfjhds",
+    {
+      id: "5",
+      name: "Mahmut Tuncer",
+      status: "waiting",
+    },
+    {
+      id: "7",
+      name: "Obama",
+      status: "cancel",
+    },
   ],
 };
+
 export const reservationSlice = createSlice({
   name: "reservations",
   initialState,
   reducers: {
     addReservation: (state, action) => {
-        console.log(state)
-        console.log(action)
-        state.value.push(action.payload)
+      state.value.push(action.payload);
     },
-    changeStatus: (state, action) => {
-
-    }
-  }
+  },
 });
 
-export const {addReservation} = reservationSlice.actions
-export default reservationSlice.reducer
+export const { addReservation } = reservationSlice.actions;
+export default reservationSlice.reducer;

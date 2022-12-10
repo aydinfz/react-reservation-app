@@ -5,7 +5,7 @@ import { IconButton, HStack, Link } from "@chakra-ui/react";
 export function Icons() {
   return (
     <HStack>
-      <Link
+     {/*  <Link
         color="teal.500"
         href="https://www.linkedin.com/in/fatma-zehra-aydin/"
         isExternal
@@ -17,7 +17,7 @@ export function Icons() {
       </Link>
       <Link color="teal.500" href="https://github.com/aydinfz" isExternal>
         <IconButton as={BsGithub} colorScheme="gray" p={2} />
-      </Link>
+      </Link> */}
     </HStack>
   );
 }
