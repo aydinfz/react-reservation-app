@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { v4 as uuidv4 } from "uuid";
 
 const initialState = {
   value: [
@@ -22,7 +21,8 @@ export const reservationSlice = createSlice({
   reducers: {
     addReservation: (state, action) => {
       state.value.push(action.payload);
-    },
+      console.log(state.value)
+    }
   },
 });
 
