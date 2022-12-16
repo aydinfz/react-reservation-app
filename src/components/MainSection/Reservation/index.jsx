@@ -16,6 +16,7 @@ export function Reservation() {
           return (
             <ReservationCard
               key={reservation.id}
+              id={reservation.id}
               name={reservation.name}
               status={reservation.status}
             />

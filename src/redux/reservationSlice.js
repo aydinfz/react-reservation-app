@@ -21,10 +21,14 @@ export const reservationSlice = createSlice({
   reducers: {
     addReservation: (state, action) => {
       state.value.push(action.payload);
-      console.log(state.value)
-    }
+    },
+    removeReservation: (state, action) => {
+      state.value = state.value.filter(
+        (reservation) => reservation.id !== action.payload
+      );
+    },
   },
 });
 
-export const { addReservation } = reservationSlice.actions;
+export const { addReservation, removeReservation } = reservationSlice.actions;
 export default reservationSlice.reducer;

@@ -3,16 +3,14 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   value: [
     {
-      id: "67",
-      name: "zeyn Tuncer",
-    },
-    {
       id: "6",
-      name: "Ahmet Tuncer",
+      name: "Mahmut Tuncer",
+      services: [],
     },
     {
       id: "637",
-      name: "Leyla Tuncer",
+      name: "Adriana Lima",
+      services: [],
     },
   ],
 };
@@ -21,10 +19,12 @@ export const confirmedSlice = createSlice({
   name: "confirmed",
   initialState,
   reducers: {
-    addConfirmed: (state, action) => {},
+    addConfirmed: (state, action) => {
+      state.value.push(action.payload)
+    },
   },
 });
 
 
-export const {  } = confirmedSlice.actions;
+export const { addConfirmed } = confirmedSlice.actions;
 export default confirmedSlice.reducer;

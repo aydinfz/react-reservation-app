@@ -24,19 +24,19 @@ export function AccordionSection() {
         </h2>
         <AccordionPanel>
           <HStack spacing={3} color="black">
-            <Checkbox size="sm" colorScheme="teal" defaultChecked>
+            <Checkbox size="sm" colorScheme="teal">
               Steak
             </Checkbox>
-            <Checkbox size="sm" colorScheme="teal" defaultChecked>
+            <Checkbox size="sm" colorScheme="teal">
               Salad
             </Checkbox>
-            <Checkbox size="sm" colorScheme="teal" defaultChecked>
+            <Checkbox size="sm" colorScheme="teal">
               Snacks
             </Checkbox>
-            <Checkbox size="sm" colorScheme="teal" defaultChecked>
+            <Checkbox size="sm" colorScheme="teal">
               Ayran
             </Checkbox>
-            <Checkbox size="sm" colorScheme="teal" defaultChecked>
+            <Checkbox size="sm" colorScheme="teal">
               Gluten-Free
             </Checkbox>
           </HStack>
