@@ -9,8 +9,9 @@ import {
   HStack,
   Box,
 } from "@chakra-ui/react";
+import { Services } from "./Services";
 
-export function AccordionSection() {
+export function AccordionSection({services}) {
   return (
     <Accordion defaultIndex={[0]} allowMultiple>
       <AccordionItem>
@@ -24,21 +25,9 @@ export function AccordionSection() {
         </h2>
         <AccordionPanel>
           <HStack spacing={3} color="black">
-            <Checkbox size="sm" colorScheme="teal">
-              Steak
-            </Checkbox>
-            <Checkbox size="sm" colorScheme="teal">
-              Salad
-            </Checkbox>
-            <Checkbox size="sm" colorScheme="teal">
-              Snacks
-            </Checkbox>
-            <Checkbox size="sm" colorScheme="teal">
-              Ayran
-            </Checkbox>
-            <Checkbox size="sm" colorScheme="teal">
-              Gluten-Free
-            </Checkbox>
+            {services.map(service => (
+           <Services key={service.food} food={service.food}/>
+            ))}
           </HStack>
         </AccordionPanel>
       </AccordionItem>

@@ -3,7 +3,7 @@ import { Person } from "./Person";
 import { AccordionSection } from "./AccordionSection";
 import { Box } from "@chakra-ui/react";
 
-export function ConfirmedCard({ person }) {
+export function ConfirmedCard({ person, services }) {
   return (
     <Box
       borderColor="teal.300"
@@ -14,7 +14,7 @@ export function ConfirmedCard({ person }) {
       color="black"
     >
       <Person person={person} />
-      <AccordionSection />
+      <AccordionSection services={services} />
     </Box>
   );
 }
