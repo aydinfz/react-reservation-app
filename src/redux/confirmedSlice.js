@@ -7,7 +7,7 @@ const services = [
   },
   {
     food: "Salad",
-    checked: false,
+    checked: true,
   },
   {
     food: "Snacks",
@@ -45,8 +45,16 @@ export const confirmedSlice = createSlice({
     addConfirmed: (state, action) => {
       state.value.push(action.payload);
     },
+
+    updateCheckStatus: (state, action) => {
+      const { personID, food } = action.payload;
+      const personInd = state.value.findIndex((val) => val.id === personID);
+      const person = state.value[personInd];
+      const foodInd = person.services.findIndex((ser) => ser.food === food);
+      person.services[foodInd].checked = !person.services[foodInd].checked;
+    },
   },
 });
 
-export const { addConfirmed } = confirmedSlice.actions;
+export const { addConfirmed, updateCheckStatus } = confirmedSlice.actions;
 export default confirmedSlice.reducer;

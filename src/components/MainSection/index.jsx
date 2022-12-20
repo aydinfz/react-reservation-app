@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react";
 import { Container, Flex, Divider } from "@chakra-ui/react";
-import { Reservation } from "./Reservation"
+import { Reservation } from "./Reservation";
 import { Confirmed } from "./Confirmed";
 
 export function MainSection() {

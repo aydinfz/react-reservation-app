@@ -28,7 +28,7 @@ export function ReservationCard({ name, status, id }) {
       addConfirmed({
         id: nanoid(),
         name,
-        services: ["sdgfdg", "yeee"]
+        services: ["sdgfdg", "yeee"],
       })
     );
   };

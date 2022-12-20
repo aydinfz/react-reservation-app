@@ -5,13 +5,17 @@ import {
   AccordionPanel,
   AccordionButton,
   AccordionIcon,
-  Checkbox,
+  useCheckbox,
   HStack,
   Box,
 } from "@chakra-ui/react";
 import { Services } from "./Services";
 
-export function AccordionSection({services}) {
+export function AccordionSection({ person }) {
+  /* function CustomCheckbox(props) {
+    const { state, getCheckboxProps, getInputProps, getLabelProps, htmlProps } =
+      useCheckbox(props)
+ */
   return (
     <Accordion defaultIndex={[0]} allowMultiple>
       <AccordionItem>
@@ -25,9 +29,7 @@ export function AccordionSection({services}) {
         </h2>
         <AccordionPanel>
           <HStack spacing={3} color="black">
-            {services.map(service => (
-           <Services key={service.food} food={service.food}/>
-            ))}
+            <Services person={person} />
           </HStack>
         </AccordionPanel>
       </AccordionItem>

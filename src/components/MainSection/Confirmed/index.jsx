@@ -9,10 +9,10 @@ export function Confirmed() {
   return (
     <VStack w="600px" h="88vh" textAlign="center">
       <Header />
-    
-        {confirmed.map((person) => {
-          return <ConfirmedCard key={person.id} person={person.name} services={person.services} />;
-        })}
+
+      {confirmed.map((person) => {
+        return <ConfirmedCard key={person.id} person={person} />;
+      })}
     </VStack>
   );
 }

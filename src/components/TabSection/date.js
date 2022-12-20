@@ -9,4 +9,3 @@ export function formatDate(date) {
     date.getFullYear(),
   ].join(".");
 }
-

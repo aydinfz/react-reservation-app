@@ -18,7 +18,9 @@ export function TabSection() {
         <TabList p={1}>
           <Tab>Reservation Panel</Tab>
           <Tab>How to use?</Tab>
-          <Tab isDisabled marginLeft="auto">{formatDate(new Date())}</Tab>
+          <Tab isDisabled marginLeft="auto">
+            {formatDate(new Date())}
+          </Tab>
         </TabList>
         <TabPanels>
           <TabPanel>
