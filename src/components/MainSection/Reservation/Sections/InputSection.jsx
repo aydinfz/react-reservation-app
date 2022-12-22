@@ -1,23 +1,25 @@
 import React, { useState } from "react";
 import { Input, Button, Box } from "@chakra-ui/react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addReservation } from "../../../../redux/reservationSlice";
 import { nanoid } from "@reduxjs/toolkit";
+import { db } from "../../../../firebase.config";
+import { ref, set } from "firebase/database";
 
 export function InputSection() {
   const [reservationNameInput, setResarvationNameInput] = useState("");
-
+  const reservations = useSelector((state) => state.reservations.value);
   const dispatch = useDispatch();
 
   const handleReservation = () => {
     if (!reservationNameInput) return;
-    dispatch(
-      addReservation({
-        id: nanoid(),
-        name: reservationNameInput,
-        status: "waiting",
-      })
-    );
+    const reservation = {
+      id: nanoid(),
+      name: reservationNameInput,
+      status: "waiting",
+    };
+    dispatch(addReservation([...reservations, reservation]));
+    set(ref(db, `/reservations`), [...reservations, reservation]);
     setResarvationNameInput("");
   };
   return (

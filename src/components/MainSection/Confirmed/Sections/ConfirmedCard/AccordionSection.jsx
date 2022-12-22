@@ -12,10 +12,6 @@ import {
 import { Services } from "./Services";
 
 export function AccordionSection({ person }) {
-  /* function CustomCheckbox(props) {
-    const { state, getCheckboxProps, getInputProps, getLabelProps, htmlProps } =
-      useCheckbox(props)
- */
   return (
     <Accordion defaultIndex={[0]} allowMultiple>
       <AccordionItem>

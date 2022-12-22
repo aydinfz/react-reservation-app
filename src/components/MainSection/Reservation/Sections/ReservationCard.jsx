@@ -1,36 +1,76 @@
 import React, { useState, useRef } from "react";
 import { Box, Badge, Icon } from "@chakra-ui/react";
 import { FaTrashAlt } from "react-icons/fa";
-import { useDispatch } from "react-redux";
-import { removeReservation } from "../../../../redux/reservationSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { addReservation } from "../../../../redux/reservationSlice";
 import { addConfirmed } from "../../../../redux/confirmedSlice";
 import { nanoid } from "@reduxjs/toolkit";
+import { db } from "../../../../firebase.config";
+import { ref, set } from "firebase/database";
 
 export function ReservationCard({ name, status, id }) {
-  const [state, setState] = useState(status);
   const dispatch = useDispatch();
+  const reservations = useSelector((state) => state.reservations.value);
+  const confirmed = useSelector((state) => state.confirmed.value);
+
+  const services = [
+    {
+      food: "Steak",
+      checked: false,
+    },
+    {
+      food: "Salad",
+      checked: false,
+    },
+    {
+      food: "Snacks",
+      checked: false,
+    },
+    {
+      food: "Ayran",
+      checked: false,
+    },
+    {
+      food: "Gluten-Free",
+      checked: false,
+    },
+  ];
 
   const handleChangeStatus = () => {
-    if (state == "waiting") {
-      setState("cancel");
-    } else {
-      setState("waiting");
-    }
+    const updatedData = reservations.map((res) => {
+      if (res.id == id) {
+        return {
+          ...res,
+          status: status === "waiting" ? "cancel" : "waiting",
+        };
+      }
+      return res;
+    });
+    dispatch(addReservation(updatedData));
+    set(ref(db, `/reservations`), [...updatedData]);
   };
 
   const handleRemove = () => {
-    dispatch(removeReservation(id));
+    const savedData = reservations.filter(
+      (reservation) => reservation.id !== id
+    );
+    dispatch(addReservation([]));
+    dispatch(addReservation(savedData));
+    set(ref(db, `/reservations`), [...savedData]);
   };
 
   const handleConfirmation = () => {
     handleRemove();
-    dispatch(
-      addConfirmed({
+    const confirmedData = [
+      ...confirmed,
+      {
         id: nanoid(),
         name,
-        services: ["sdgfdg", "yeee"],
-      })
-    );
+        services,
+      },
+    ];
+    dispatch(addConfirmed(confirmedData));
+    set(ref(db, `/confirmed`), [...confirmedData]);
   };
 
   return (
@@ -49,8 +89,11 @@ export function ReservationCard({ name, status, id }) {
         onDoubleClick={handleConfirmation}
       >
         {name}
-        <Badge colorScheme={state == "cancel" ? "blackAlpha" : "purple"} mx={2}>
-          {state}
+        <Badge
+          colorScheme={status == "cancel" ? "blackAlpha" : "purple"}
+          mx={2}
+        >
+          {status}
         </Badge>
       </Box>
       <Icon
