@@ -1,10 +1,8 @@
 # Reservation App
 
-## Helps to manage your reservations effotlessly
-<br/>
+### Helps to manage your reservations effortlessly
 
-![reservation-app](/public/reservation1.png)
-![reservation-app](/public/reservation2.png)
+🔗 Live Demo: [react-reservation-app](https://react-reservation-app.vercel.app/)
 
 ## ✨ Features
 
@@ -15,6 +13,7 @@
 - Check services of confirmed reservations
 - Use time-picker to select a date ( future idea 💡)
 
+![reservation-app](/public/reservation1.png)
 
 ## 💻 Tech Stack
 
